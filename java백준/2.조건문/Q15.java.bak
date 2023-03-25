@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+class Q15
+{
+	public static void main(String[] args) 
+	{
+		Scanner in = new Scanner(System.in);
+
+		int a = in.newInt();
+		int b = in.newInt();
+
+		if (a>b)
+			System.out.println(">");
+		else if (a<b)
+			System.out.println("<");
+		else
+			System.out.println("==");
+	}
+}

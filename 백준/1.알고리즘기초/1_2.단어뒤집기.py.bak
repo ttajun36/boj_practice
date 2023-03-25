@@ -1,0 +1,12 @@
+import sys
+input = sys.stdin.readline
+
+t = int(input())
+for _ in range(t):
+	sentence = input().split()
+
+	for a in sentence:
+		for i in range(len(a)):
+			print(a[-i-1], end='')
+		print(" ", end='')
+	print()

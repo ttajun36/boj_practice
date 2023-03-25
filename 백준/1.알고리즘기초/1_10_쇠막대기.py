@@ -1,0 +1,17 @@
+import sys
+input = sys.stdin.readline
+
+data = input()
+stack = 0
+ans = 0
+for i in range(len(data)):
+	if data[i] == '(':
+		stack += 1
+	elif data[i] == ')':
+		stack -= 1
+		if data[i-1] == '(':
+			ans += stack
+		elif data[i-1] == ')':
+			ans += 1
+
+print(ans)

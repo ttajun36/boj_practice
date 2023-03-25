@@ -1,0 +1,14 @@
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+price = list(map(int, input().split()))
+dp = []
+
+for i in range(n):
+	tmp=[price[i]]
+	for j in range(i):
+		tmp.append(dp[j] + price[i-j-1])
+	dp.append(min(tmp))
+
+print(dp.pop())

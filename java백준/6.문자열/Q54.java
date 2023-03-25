@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+class Q64 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.next();
+		int count = 0;
+
+		for (int i=0;i<str.length() ;i++ )
+		{
+			if (str.length()-i > 1 && str.charAt(i) == 'c')
+				if (str.charAt(i+1) == '=' || str.charAt(i+1) == '-')
+					i++;
+
+			if (str.length()-i > 1 && str.charAt(i) == 'd')
+				if (str.charAt(i+1) == '-')
+					i++;
+			
+			if (str.length()-i > 2 && str.charAt(i) == 'd')
+				if (str.charAt(i+1) == 'z' && str.charAt(i+2) == '=')
+					i+=2;
+
+			if (str.length()-i > 1 && str.charAt(i) == 'l')
+				if (str.charAt(i+1) == 'j')
+					i++;
+
+			if (str.length()-i > 1 && str.charAt(i) == 'n')
+				if (str.charAt(i+1) == 'j')
+					i++;
+
+			if (str.length()-i > 1 && str.charAt(i) == 's')
+				if (str.charAt(i+1) == '=')
+					i++;
+
+			if (str.length()-i > 1 && str.charAt(i) == 'z')
+				if (str.charAt(i+1) == '=')
+					i++;
+
+			count++;
+		}
+		System.out.println(count);
+	}
+}

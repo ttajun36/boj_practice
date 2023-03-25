@@ -1,0 +1,29 @@
+'''
+import sys
+input = sys.stdin.readline
+
+def make(a):
+	sum = a
+	while a>0:
+		sum += a%10
+		a//=10
+	return sum
+
+n = int(input())
+for i in range(n):
+	if make(i) == n:
+		print(i)
+		break
+	if i==n-1:
+		print(0)
+'''
+import sys
+input = sys.stdin.readline
+n = int(input())
+for i in range(n):
+	arr = list(map(int, str(i)))
+	if n == i+ sum(arr):
+		print(i)
+		break
+	if i ==n-1:
+		print(0)

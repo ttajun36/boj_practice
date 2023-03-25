@@ -1,0 +1,23 @@
+import sys
+input = sys.stdin.readline
+
+def gcd(a, b):
+	large = max(a,b)
+	small = min(a,b)
+
+	while True:
+		if large%small == 0:
+			return small
+		else:
+			tmp = large%small
+			large = small
+			small = tmp
+
+print(gcd(42, 56))
+'''
+
+t = int(input())
+for _ in range(t):
+	li = list(map(int, input().split()))
+
+'''

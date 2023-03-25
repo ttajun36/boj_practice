@@ -1,0 +1,49 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Q68
+{
+	static boolean if_Prime(int a, ArrayList<Integer> prime){
+		if (a==1)
+			return false;
+		else if (a==2)
+			return true;
+		else{
+			for (int i=0;i<prime.size() ;i++ ){
+				if (a%prime.get(i) == 0)
+					return false;
+            
+			    if (prime.get(i) > Math.sqrt(a))
+					break;
+			}
+
+			return true;
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		while (n>0)
+		{
+			int count = 0;
+
+			ArrayList<Integer> prime = new ArrayList<Integer>();
+
+			for (int i=1;i<=2*n ;i++ )
+			{
+				if (if_Prime(i, prime))
+				{
+					prime.add(i);
+					if (i >n)
+						count ++;
+				}
+			}
+			
+			System.out.println(count);
+
+			n=sc.nextInt();
+		}
+	}
+}

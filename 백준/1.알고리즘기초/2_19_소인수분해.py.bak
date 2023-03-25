@@ -1,0 +1,20 @@
+import sys
+input = sys.stdin.readline
+
+prime = [1] * 10000
+for i in range(2, len(prime)):
+	if prime[i] ==1:
+		for j in range(i+i, len(prime), i):
+			prime[j] = 0
+
+n = int(input())
+if n>1:
+	while n>0:
+		for i in range(2, int(n**(1/2))+1):
+			if prime[i]==1 and n%i==0:
+				print(i)
+				n//=i
+				break
+		if prime[n] ==1:
+			print(n)
+			break

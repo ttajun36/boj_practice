@@ -1,0 +1,24 @@
+'''
+import sys
+input = sys.stdin.readline
+
+def change(n):
+	ans = str(n%2)
+	newN = n//2
+	ans = str(newN//2) + str(newN%2) + ans
+
+	return ans
+
+n = input().rstrip()
+
+ans = ''
+for i in range(len(n)):
+	ans = ans + change(int(n[i]))
+
+while ans[0] == '0':
+	ans = ans[1:]
+print(ans)
+'''
+print(bin(int(input(), 8))[2:])
+
+print(oct(int(input(), 2))[2:])

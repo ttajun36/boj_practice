@@ -1,0 +1,30 @@
+import sys
+input = sys.stdin.readline
+
+sentence = input().rstrip()
+
+stack1 = []
+for letter in sentence:
+	stack1.append(letter)
+
+stack2=[]
+n = int(input())
+for _ in range(n):
+	command = input()
+	if command[0] == 'L':
+		if len(stack1)>0:
+			stack2.append(stack1.pop())
+	elif command[0] == 'D':
+		if len(stack2)>0:
+			stack1.append(stack2.pop())
+	elif command[0] == 'B':
+		if len(stack1)>0:
+			stack1.pop()
+	else:
+		stack1.append(command[2])
+
+for i in stack1:
+	print(i,end='')
+while stack2:
+	print(stack2.pop(),end='')
+print()

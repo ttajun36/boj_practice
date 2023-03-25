@@ -1,0 +1,23 @@
+import sys
+input = sys.stdin.readline
+
+n, k = map(int, input().split())
+
+count = 0
+queue = []
+ans = []
+
+for i in range(1, n+1):
+	queue.append(i)
+
+while len(queue) > 0:
+	count += k
+	count %= len(queue)
+	if count == 0:
+		count = len(queue)
+	ans.append(queue[count-1])
+	del(queue[count-1])
+	count -= 1
+
+ans2 = list(map(str, ans))
+print("<",", ".join(ans2)[:],">", sep='')

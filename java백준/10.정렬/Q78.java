@@ -1,0 +1,76 @@
+import java.io.*;
+
+class  Q78
+{
+	public static void main(String[] args) throws IOException
+	{
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+
+		int n = Integer.parseInt(bf.readLine());
+
+		int[] count = new int[8001];
+		int sum = 0;
+		for (int i=0;i<n ;i++ ){
+			int value = Integer.parseInt(bf.readLine());
+			sum+=value;
+			count[value+4000]++;
+		}
+
+		//»ê¼úÆò±Õ
+		sb.append(Math.round((float)sum/n)).append('\n');
+
+		//Áß¾Ó°ª
+		int median = 0;
+		int j=0;
+		while (median < (n+1)/2)
+		{
+			median += count[j];
+			j++;
+		}
+		j--;
+		sb.append(j-4000).append('\n');
+
+		//ÃÖºó°ª
+		int mode = 0;
+		int mode_index = 0;
+		for (int i=0;i<8001 ;i++ )
+			if (count[i] > mode){
+				mode = count[i];
+				mode_index = i;
+			}
+		
+		int mode2 = 0;
+		int mode2_index = -1;
+		for (int i=mode_index+1;i<8001 ;i++ )
+			if (count[i] == mode){
+				mode2_index = i;
+				break;
+			}
+
+		if (mode2_index != -1)
+			sb.append(mode2_index - 4000).append('\n');
+		else
+			sb.append(mode_index - 4000).append('\n');
+
+
+		//¹üÀ§
+		int min = 0;
+		while (true){
+			if(count[min] != 0)
+				break;
+			min++;
+		}
+
+		int max = 8000;
+		while (true){
+			if(count[max] != 0)
+				break;
+			max--;
+		}
+		sb.append(max-min);
+
+		
+		System.out.println(sb);
+	}
+}

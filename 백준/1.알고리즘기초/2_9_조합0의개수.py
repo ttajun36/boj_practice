@@ -1,0 +1,20 @@
+import sys
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
+
+def count2(a):
+	count = 0
+	while a>0:
+		a//=2
+		count+=a
+	return(count)
+
+def count5(a):
+	count=0
+	while a>0:
+		a//=5
+		count+=a
+	return(count)
+
+print(min(count2(n)-count2(m)-count2(n-m), count5(n)-count5(m)-count5(n-m)))

@@ -1,0 +1,13 @@
+import sys
+input = sys.stdin.readline
+
+n = input().rstrip()
+ans = []
+
+while len(n)%3 !=0:
+	n = '0' + n
+
+for i in range(0, len(n), 3):
+	ans.append(int(n[i])*4 + int(n[i+1])*2 + int(n[i+2]))
+
+print(ans)

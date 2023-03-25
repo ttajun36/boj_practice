@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class Q42 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int testCase = sc.nextInt();
+
+		for (int i=0;i<testCase ;i++ )
+		{
+			int n = sc.nextInt();
+			int[] student = new int[n];
+			int sum = 0;
+			double count = 0;
+
+			for (int j=0;j<n ;j++ )
+			{
+				student[j] = sc.nextInt();
+				sum += student[j];
+			}
+
+			sum = sum/n;
+
+			for (int j=0;j<n ;j++ )
+				if (student[j] > sum)
+					count++;
+			
+			System.out.printf("%.3f%%\n",count/n);
+		}
+	}
+}

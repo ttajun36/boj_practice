@@ -1,0 +1,102 @@
+/*/
+import java.util.Scanner;
+
+class  Q73
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+
+		String a = sc.next();
+		String b = sc.next();
+		
+		if (a.length() > b.length())
+		{
+			int[] bigA = new int[a.length()];
+			int[] bigB = new int[a.length()];
+			int[] bigAns = new int[a.length()+1];
+
+			for (int i=0;i<a.length() ;i++ )
+			{
+				bigA[i] =a.charAt(a.length()-i-1) - '0';
+				if (i<b.length())
+					bigB[i] =b.charAt(b.length()-i-1) - '0';
+
+				bigAns[i] += bigA[i] + bigB[i];
+				if (bigAns[i]>9){
+					bigAns[i+1] ++;
+					bigAns[i] %= 10;
+				}
+			}
+			
+			if (bigAns[a.length()] == 0)
+				for (int i=0;i<a.length() ;i++ )
+					System.out.print(bigAns[a.length()-i-1]);
+			else
+				for (int i=0;i<a.length()+1 ;i++ )
+					System.out.print(bigAns[a.length()-i]);
+			
+			System.out.println();
+		}
+		else{
+			int[] bigA = new int[b.length()];
+			int[] bigB = new int[b.length()];
+			int[] bigAns = new int[b.length()+1];
+
+			for (int i=0;i<b.length() ;i++ )
+			{
+				bigB[i] =b.charAt(b.length()-i-1) - '0';
+				if (i<a.length())
+					bigA[i] =a.charAt(a.length()-i-1) - '0';
+
+				bigAns[i] += bigA[i] + bigB[i];
+				if (bigAns[i]>9){
+					bigAns[i+1] ++;
+					bigAns[i] %= 10;
+				}
+			}
+			
+			if (bigAns[b.length()] == 0)
+				for (int i=0;i<b.length() ;i++ )
+					System.out.print(bigAns[b.length()-i-1]);
+			else
+				for (int i=0;i<b.length()+1 ;i++ )
+					System.out.print(bigAns[b.length()-i]);
+			
+			System.out.println();
+		}
+	}
+}
+//*/
+
+import java.util.Scanner;
+
+class  Q73
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+
+		String a = sc.next();
+		String b = sc.next();
+		int maxLength = Math.max(a.length(), b.length());
+		
+		int[] bigA = new int[maxLength];
+		int[] bigB = new int[maxLength];
+
+		for (int i=0;i<a.length() ;i++ )
+			bigA[i] = a.charAt(a.length()-1) - '0';
+		for (int i=0;i<b.length() ;i++ )
+			bigB[i] = b.charAt(b.length()-1) - '0';
+
+		for (int i=0;i<maxLength ;i++ )
+		{
+			int value = bigA[i] + bigB[i];
+			bigA[i] = value%10;
+			bigA[i+1] +=  value/10
+		}
+		
+
+
+	}
+}

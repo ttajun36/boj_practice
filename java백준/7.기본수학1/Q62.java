@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class Q72 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+
+		int n = sc.nextInt();
+		
+		if (n%5 == 0){
+			System.out.println(n/5);
+			return;
+		}
+
+		int count3 = 0;
+		int count5 = 0;
+		int count = 0;
+
+		while (n>0)
+		{
+			if (n%3 == 0){
+				count3 = n/3;
+				count5 = count;
+			}
+		
+			n -= 5;
+			count ++;
+		}
+
+		if (count3==0 && count5==0)
+			System.out.println(-1);
+		else
+			System.out.println(count3+count5);
+	}
+}

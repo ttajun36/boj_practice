@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+
+class Q82 
+{
+	static void change(String[] arr, int a, int b){
+		String value = arr[a];
+		arr[a] = arr[b];
+		arr[b] = value;
+	}
+
+	public static void main(String[] args) throws IOException
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+
+		int n = Integer.parseInt(br.readLine());
+		String[] arr = new String[n];
+		for (int i=0;i<n ;i++ )
+			arr[i] = br.readLine();
+
+		Arrays.sort(arr, new CustomComparator());
+		
+		sb.append(arr[0]).append('\n');
+		for (int i=1;i<n ;i++ )
+			if (!(arr[i].equals(arr[i-1])))
+				sb.append(arr[i]).append('\n');
+
+		System.out.println(sb);
+	}
+}
+
+class CustomComparator implements Comparator<String>
+{
+	@Override
+	public int compare(String o1, String o2){
+		if (o1.length() != o2.length())
+			return o1.length() - o2.length();
+		else{
+			for (int i=0;i<o1.length() ;i++ )
+			{
+				if (o1.charAt(i) != o2.charAt(i))
+					return o1.charAt(i) - o2.charAt(i);
+			}
+			return 0;
+		}
+	}
+}
+
+
+//https://ifuwanna.tistory.com/232
