@@ -1,0 +1,25 @@
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+err = int(input())
+if err>0:
+	err_remote = list(map(int, input().split()))
+else:
+	err_remote = []
+
+ans = abs(n-100)
+for i in range(1000000):
+	flag = True
+	channel = str(i)
+
+	for j in range (len(channel)):
+		if int(channel[j]) in err_remote:
+			flag = False
+			break
+
+	if flag == True:
+		ans = min(ans, abs(i-n)+len(str(i)))
+
+print(ans)
+
